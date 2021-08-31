@@ -8,7 +8,7 @@
 
 int main(void)
 {
-	char palabra[9] = "Holberton";
+	char palabra[9] = "_putchar";
 	int i = 0;
 
 	for (i = 0; i < 8 ; i++)
