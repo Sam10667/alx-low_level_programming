@@ -1,21 +1,18 @@
 #include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
-#include <limits.h>
+
 /**
- * *malloc_checked - allocates memory using
- * @b: value assign memory
- * Return: void
+ * main - check the code for ALX School students.
+ *
+ * Return: Always 0.
  */
-
-void *malloc_checked(unsigned int b)
+int main(void)
 {
-	void *resp;
+    char *concat;
 
-	resp = malloc(b);
-	if (resp == NULL)
-	{
-		exit(98);
-	}
-	return (resp);
+    concat = string_nconcat("Best ", "School !!!", 6);
+    printf("%s\n", concat);
+    free(concat);
+    return (0);
 }
-
