@@ -1,57 +1,37 @@
-#include <stdio.h>
 #include "main.h"
+
 /**
- * binary_to_uint - converts a binary number to an unsigned int
- * @b: pointer char
- * Return: int number
- **/
+ * binary_to_uint - converts a binary number to an
+ * unsigned int.
+ * @b: binary.
+ *
+ * Return: unsigned int.
+ */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int size = 0, add = 0, indice = 0;
+	unsigned int ui;
+	int len, base_two;
 
-	if (b == NULL)
+	if (!b)
 		return (0);
 
-	while (*(b + size) != '\0')
-	{
-		size++;
-	}
-	while (size != 0)
-	{
-		if (b[indice] == '1')
-		{
-			add = add + pow2(size - 1);
+	ui = 0;
 
-		}
-		else if (b[indice] != '0' && b[indice] != '1')
+	for (len = 0; b[len] != '\0'; len++)
+		;
+
+	for (len--, base_two = 1; len >= 0; len--, base_two *= 2)
+	{
+		if (b[len] != '0' && b[len] != '1')
 		{
 			return (0);
 		}
-	indice++;
-	size--;
+
+		if (b[len] & 1)
+		{
+			ui += base_two;
+		}
 	}
-	return (add);
+
+	return (ui);
 }
-
-/**
- * pow2 - power
- * @b: exponente
- * Return: power number
- **/
-
-unsigned int pow2(unsigned int b)
-{
-	unsigned int power = 1, i = 1;
-
-	if (b == 0)
-	{
-		return (1);
-	}
-	for (i = 0; i < b; i++)
-	{
-		power = power * 2;
-	}
-	return (power);
-}
-
-
